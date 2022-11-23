@@ -11,41 +11,38 @@ class BankCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      //checar propiedades Card
-      child: Container(
-        color: CustomTheme.primaryColor,
-        height: 412,
-        width: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Text(TextData.balance, style: CustomTheme.balance),
-            Wds().sBox24(),
-            SizedBox(
-              child: Text(
-                  TextData.$ +
-                      Provider.of<BankProvider>(context)
-                          .getBalanceAcount()
-                          .toString() +
-                      TextData.money,
-                  textAlign: TextAlign.center,
-                  style: CustomTheme.money),
-            ),
-            Wds().sBox64(),
-            TextButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const AddAmountScreen(),
-                    ),
-                  );
-                },
-                child: Text(TextData.create)),
-            Wds().sBox56(),
-          ],
-        ),
+    return Container(
+      color: CustomTheme.primaryColor,
+      height: 412,
+      width: double.infinity,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Text(TextData.balance, style: CustomTheme.balance),
+          Wds().sBox24(),
+          SizedBox(
+            child: Text(
+                TextData.$ +
+                    Provider.of<BankProvider>(context)
+                        .getBalanceAcount()
+                        .toString() +
+                    TextData.money,
+                textAlign: TextAlign.center,
+                style: CustomTheme.money),
+          ),
+          Wds().sBox64(),
+          TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const AddAmountScreen(),
+                  ),
+                );
+              },
+              child: Text(TextData.create)),
+          Wds().sBox56(),
+        ],
       ),
     );
   }

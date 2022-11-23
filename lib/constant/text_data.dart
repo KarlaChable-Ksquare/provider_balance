@@ -15,4 +15,5 @@ class TextData {
   static String descr = 'Description';
   static String submit = 'SUBMIT';
   static String error = 'Error';
+  static String noSend = 'Error: Incomplete data';
 }

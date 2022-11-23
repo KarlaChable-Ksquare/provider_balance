@@ -24,6 +24,10 @@ class CustomTheme {
     fontSize: 16.0,
     fontWeight: FontWeight.w400,
   );
+  static const noSend = TextStyle(
+      fontSize: 28.0,
+      fontWeight: FontWeight.w500,
+      color: Color.fromRGBO(193, 84, 106, 1));
 
   var themeBank = ThemeData(
     primaryColor: primaryColor,

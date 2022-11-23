@@ -121,24 +121,7 @@ class _AddAmountScreenState extends State<AddAmountScreen> {
                 if (_titleCtrl.text.isNotEmpty &&
                     _descCtrl.text.isNotEmpty &&
                     _amountCtrl.text.isNotEmpty) {
-                  if (_valor == Valor.income) {
-                    //print('Income True');
-                    //print(timeNow);
-                    Provider.of<BankProvider>(
-                      context,
-                      listen: false,
-                    ).addAmountIncome(
-                        _titleCtrl.text,
-                        _descCtrl.text,
-                        int.parse(_amountCtrl.text),
-                        isIncExp,
-                        Functions.timeNow());
-                    clearText();
-                  }
-
-                  if (_valor == Valor.expense) {
-                    //print('Expense True');
-                    //print(timeNow);
+                  if (_valor == Valor.income || _valor == Valor.expense) {
                     Provider.of<BankProvider>(
                       context,
                       listen: false,
@@ -151,8 +134,17 @@ class _AddAmountScreenState extends State<AddAmountScreen> {
                     clearText();
                   }
                 } else {
-                  //añadir snackbar
-                  print(TextData.error);
+                  showModalBottomSheet(
+                      backgroundColor: CustomTheme.cb,
+                      context: context,
+                      builder: (context) {
+                        return Text(
+                          TextData.noSend,
+                          style: CustomTheme.noSend,
+                          textAlign: TextAlign.center,
+                        );
+                      });
+                  //print(TextData.error);
                 }
               },
               child: Text(TextData.submit),
