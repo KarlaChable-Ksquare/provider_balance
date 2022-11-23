@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:provider_bank/constant/text_data.dart';
 import 'package:provider_bank/constant/widgets.dart';
 import 'package:provider_bank/providers/bank_provider.dart';
-import 'package:provider_bank/screens/submit.dart';
+import 'package:provider_bank/screens/addamount.dart';
 import 'package:provider_bank/utils/theme.dart';
 
 class BankCard extends StatelessWidget {
@@ -37,7 +37,7 @@ class BankCard extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => SubmitScreen(),
+                      builder: (context) => AddAmountScreen(),
                     ),
                   );
                 },

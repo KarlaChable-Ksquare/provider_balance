@@ -9,14 +9,14 @@ import 'package:provider_bank/utils/theme.dart';
 
 enum Valor { income, expense }
 
-class SubmitScreen extends StatefulWidget {
-  SubmitScreen({Key? key}) : super(key: key);
+class AddAmountScreen extends StatefulWidget {
+  const AddAmountScreen({Key? key}) : super(key: key);
 
   @override
-  State<SubmitScreen> createState() => _SubmitScreenState();
+  State<AddAmountScreen> createState() => _AddAmountScreenState();
 }
 
-class _SubmitScreenState extends State<SubmitScreen> {
+class _AddAmountScreenState extends State<AddAmountScreen> {
   final TextEditingController _titleCtrl = TextEditingController();
   final TextEditingController _amountCtrl = TextEditingController();
   final TextEditingController _descCtrl = TextEditingController();
@@ -136,7 +136,7 @@ class _SubmitScreenState extends State<SubmitScreen> {
                         int.parse(_amountCtrl.text), isIncExp, timeNow);
                   }
                 } else {
-                  print(TextData.error);
+                  //print(TextData.error);
                 }
               },
               child: Text(TextData.submit),

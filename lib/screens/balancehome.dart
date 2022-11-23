@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_bank/constant/text_data.dart';
-import 'package:provider_bank/custom_widgets/acount_card.dart';
+import 'package:provider_bank/custom_widgets/bank_card.dart';
 import 'package:provider_bank/custom_widgets/listmoves_card.dart';
 import 'package:provider_bank/model/amount.dart';
 import 'package:provider_bank/providers/bank_provider.dart';
 import 'package:provider_bank/utils/theme.dart';
 
-class BalanceScreen extends StatelessWidget {
-  const BalanceScreen({super.key});
+class BalanceHomeScreen extends StatelessWidget {
+  const BalanceHomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

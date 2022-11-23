@@ -1,16 +1,14 @@
-# provider_bank
+# Classified App (UI)
+A new Flutter project. Testing size in motorola E 6 plus using Vyzor.
 
-A new Flutter project.
+## Practice Provider & Testing
+Karla Chable
 
-## Getting Started
+### Balance Home Screen
+![RegisterScreen](./screenshots/BalanceHomeScreen.png)
 
-This project is a starting point for a Flutter application.
+###  Add Amount Screen
+![LoginScreen](./screenshots/AddAmountScreen.png)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+###  Balance Home Screen with Tasks
+![LoginScreen](./screenshots/BalanceHomeTask.png)

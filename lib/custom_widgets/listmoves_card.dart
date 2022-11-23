@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider_bank/constant/widgets.dart';
 import 'package:provider_bank/utils/theme.dart';
 
 class ListMoves extends StatelessWidget {

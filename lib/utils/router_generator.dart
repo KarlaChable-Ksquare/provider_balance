@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider_bank/screens/balance.dart';
-import 'package:provider_bank/screens/submit.dart';
+import 'package:provider_bank/screens/balancehome.dart';
+import 'package:provider_bank/screens/addamount.dart';
 
 class RouterGenerator {
   var routerGenerate = ((settings) {
@@ -9,11 +9,11 @@ class RouterGenerator {
     switch (routeName) {
       case '/':
         return MaterialPageRoute(
-            builder: (context) => const SafeArea(child: BalanceScreen()));
+            builder: (context) => const SafeArea(child: BalanceHomeScreen()));
 
       case '/submit':
         return MaterialPageRoute(
-            builder: (context) => SafeArea(child: SubmitScreen()));
+            builder: (context) => SafeArea(child: AddAmountScreen()));
     }
     //return null;
   });
