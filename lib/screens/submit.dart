@@ -1,0 +1,149 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
+import 'package:provider_bank/constant/text_data.dart';
+import 'package:provider_bank/constant/widgets.dart';
+import 'package:provider_bank/providers/bank_provider.dart';
+import 'package:provider_bank/utils/theme.dart';
+
+enum Valor { income, expense }
+
+class SubmitScreen extends StatefulWidget {
+  SubmitScreen({Key? key}) : super(key: key);
+
+  @override
+  State<SubmitScreen> createState() => _SubmitScreenState();
+}
+
+class _SubmitScreenState extends State<SubmitScreen> {
+  final TextEditingController _titleCtrl = TextEditingController();
+  final TextEditingController _amountCtrl = TextEditingController();
+  final TextEditingController _descCtrl = TextEditingController();
+  String timeNow = DateFormat.yMd().add_jm().format(DateTime.now());
+  Valor? _valor = Valor.income;
+  bool isIncExp = true;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(TextData.pageSub),
+        centerTitle: true,
+      ),
+      body: Container(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  child: ListTile(
+                    title: Text(TextData.income, style: CustomTheme.inexp),
+                    leading: Radio<Valor>(
+                      fillColor: MaterialStateColor.resolveWith(
+                          (states) => CustomTheme.primaryColor),
+                      focusColor: MaterialStateColor.resolveWith(
+                          (states) => CustomTheme.secondaryColor),
+                      value: Valor.income,
+                      groupValue: _valor,
+                      onChanged: (Valor? value) {
+                        setState(() {
+                          _valor = value;
+                          isIncExp = true;
+                          //print(value);
+                        });
+                      },
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: ListTile(
+                    title: Text(TextData.expense, style: CustomTheme.inexp),
+                    leading: Radio<Valor>(
+                      fillColor: MaterialStateColor.resolveWith(
+                          (states) => CustomTheme.secondaryColor),
+                      focusColor: MaterialStateColor.resolveWith(
+                          (states) => CustomTheme.primaryColor),
+                      value: Valor.expense,
+                      groupValue: _valor,
+                      onChanged: (Valor? value) {
+                        setState(() {
+                          _valor = value;
+                          isIncExp = false;
+                          //print(value);
+                        });
+                      },
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Wds().sBox18(),
+            TextField(
+              key: const Key('titleTextField'),
+              controller: _titleCtrl,
+              keyboardType: TextInputType.name,
+              decoration: InputDecoration(
+                labelText: TextData.title,
+              ),
+            ),
+            Wds().sBox12(),
+            TextField(
+              key: const Key('amountTextField'),
+              controller: _amountCtrl,
+              keyboardType: TextInputType.number,
+              inputFormatters: [LengthLimitingTextInputFormatter(5)],
+              decoration: InputDecoration(
+                labelText: TextData.amount,
+              ),
+            ),
+            Wds().sBox12(),
+            TextField(
+              key: const Key('descTextField'),
+              controller: _descCtrl,
+              keyboardType: TextInputType.text,
+              maxLines: 2,
+              decoration: InputDecoration(
+                labelText: TextData.descr,
+              ),
+            ),
+            Wds().sBox32(),
+            ElevatedButton(
+              key: const Key('submitButton'),
+              onPressed: () {
+                if (_titleCtrl.text.isNotEmpty &&
+                    _descCtrl.text.isNotEmpty &&
+                    _amountCtrl.text.isNotEmpty) {
+                  if (_valor == Valor.income) {
+                    //print('Income True');
+                    //print(timeNow);
+                    Provider.of<BankProvider>(
+                      context,
+                      listen: false,
+                    ).addAmountIncome(_titleCtrl.text, _descCtrl.text,
+                        int.parse(_amountCtrl.text), isIncExp, timeNow);
+                  }
+
+                  if (_valor == Valor.expense) {
+                    //print('Expense True');
+                    //print(timeNow);
+                    Provider.of<BankProvider>(
+                      context,
+                      listen: false,
+                    ).addAmountIncome(_titleCtrl.text, _descCtrl.text,
+                        int.parse(_amountCtrl.text), isIncExp, timeNow);
+                  }
+                } else {
+                  print(TextData.error);
+                }
+              },
+              child: Text(TextData.submit),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
