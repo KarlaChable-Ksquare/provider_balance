@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_bank/constant/text_data.dart';
 import 'package:provider_bank/constant/widgets.dart';
 import 'package:provider_bank/providers/bank_provider.dart';
+import 'package:provider_bank/utils/functions.dart';
 import 'package:provider_bank/utils/theme.dart';
 
 enum Valor { income, expense }
@@ -20,9 +20,14 @@ class _AddAmountScreenState extends State<AddAmountScreen> {
   final TextEditingController _titleCtrl = TextEditingController();
   final TextEditingController _amountCtrl = TextEditingController();
   final TextEditingController _descCtrl = TextEditingController();
-  String timeNow = DateFormat.yMd().add_jm().format(DateTime.now());
   Valor? _valor = Valor.income;
   bool isIncExp = true;
+
+  void clearText() {
+    _titleCtrl.clear();
+    _amountCtrl.clear();
+    _descCtrl.clear();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -122,8 +127,13 @@ class _AddAmountScreenState extends State<AddAmountScreen> {
                     Provider.of<BankProvider>(
                       context,
                       listen: false,
-                    ).addAmountIncome(_titleCtrl.text, _descCtrl.text,
-                        int.parse(_amountCtrl.text), isIncExp, timeNow);
+                    ).addAmountIncome(
+                        _titleCtrl.text,
+                        _descCtrl.text,
+                        int.parse(_amountCtrl.text),
+                        isIncExp,
+                        Functions.timeNow());
+                    clearText();
                   }
 
                   if (_valor == Valor.expense) {
@@ -132,11 +142,17 @@ class _AddAmountScreenState extends State<AddAmountScreen> {
                     Provider.of<BankProvider>(
                       context,
                       listen: false,
-                    ).addAmountIncome(_titleCtrl.text, _descCtrl.text,
-                        int.parse(_amountCtrl.text), isIncExp, timeNow);
+                    ).addAmountIncome(
+                        _titleCtrl.text,
+                        _descCtrl.text,
+                        int.parse(_amountCtrl.text),
+                        isIncExp,
+                        Functions.timeNow());
+                    clearText();
                   }
                 } else {
-                  //print(TextData.error);
+                  //añadir snackbar
+                  print(TextData.error);
                 }
               },
               child: Text(TextData.submit),

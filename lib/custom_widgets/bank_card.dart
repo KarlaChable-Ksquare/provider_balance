@@ -12,6 +12,7 @@ class BankCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      //checar propiedades Card
       child: Container(
         color: CustomTheme.primaryColor,
         height: 412,
@@ -37,7 +38,7 @@ class BankCard extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => AddAmountScreen(),
+                      builder: (context) => const AddAmountScreen(),
                     ),
                   );
                 },
