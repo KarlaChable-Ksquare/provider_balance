@@ -4,8 +4,7 @@ import 'package:provider_bank/model/amount.dart';
 class BankProvider extends ChangeNotifier {
   List<Amount> amounts = [];
 
-  void addAmountIncome(String title, String descrip, int amount, bool isIncExp,
-      String createdTime) {
+  void addAmountIncExp(title, descrip, amount, isIncExp, createdTime) {
     Amount amountBank = Amount(
         title: title,
         description: descrip,
@@ -16,7 +15,7 @@ class BankProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  //get getAmountCount => amounts.length;
+  get getAmountCount => amounts.length;
 
   num getBalanceAcount() {
     num balance = 0;

@@ -45,6 +45,7 @@ class _AddAmountScreenState extends State<AddAmountScreen> {
               children: [
                 Expanded(
                   child: ListTile(
+                    //key: const Key('listTileIncome'),
                     title: Text(TextData.income, style: CustomTheme.inexp),
                     leading: Radio<Valor>(
                       fillColor: MaterialStateColor.resolveWith(
@@ -67,6 +68,7 @@ class _AddAmountScreenState extends State<AddAmountScreen> {
                   child: ListTile(
                     title: Text(TextData.expense, style: CustomTheme.inexp),
                     leading: Radio<Valor>(
+                      key: const Key('listTileExpense'),
                       fillColor: MaterialStateColor.resolveWith(
                           (states) => CustomTheme.secondaryColor),
                       focusColor: MaterialStateColor.resolveWith(
@@ -125,7 +127,7 @@ class _AddAmountScreenState extends State<AddAmountScreen> {
                     Provider.of<BankProvider>(
                       context,
                       listen: false,
-                    ).addAmountIncome(
+                    ).addAmountIncExp(
                         _titleCtrl.text,
                         _descCtrl.text,
                         int.parse(_amountCtrl.text),

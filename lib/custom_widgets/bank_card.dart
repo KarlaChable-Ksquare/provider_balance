@@ -32,6 +32,7 @@ class BankCard extends StatelessWidget {
           ),
           Wds().sBox64(),
           TextButton(
+              key: const Key('createButton'),
               onPressed: () {
                 Navigator.push(
                   context,
