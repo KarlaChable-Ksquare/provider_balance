@@ -21,4 +21,4 @@ Karla Chable
 ![LoginScreen](./screenshots/BalanceHomeTaskDialogInc.png)
 
 ###  Balance Home Screen Dialog Tasks Expense
-![LoginScreen](./screenshots/BBalanceHomeTaskDialogExp.png)
+![LoginScreen](./screenshots/BalanceHomeTaskDialogExp.png)
