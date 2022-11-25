@@ -45,9 +45,9 @@ class _AddAmountScreenState extends State<AddAmountScreen> {
               children: [
                 Expanded(
                   child: ListTile(
-                    //key: const Key('listTileIncome'),
                     title: Text(TextData.income, style: CustomTheme.inexp),
                     leading: Radio<Valor>(
+                      //key: const Key('listTileIncome'),
                       fillColor: MaterialStateColor.resolveWith(
                           (states) => CustomTheme.primaryColor),
                       focusColor: MaterialStateColor.resolveWith(

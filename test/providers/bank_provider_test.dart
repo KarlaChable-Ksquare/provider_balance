@@ -14,5 +14,12 @@ void main() {
           'Figma Snow Miku', 'Compre una figma', 1400, false, timeNow);
       expect(bankProvider.getAmountCount, 1);
     });
+
+    test('Amount of Money', () {
+      String timeNow = DateFormat.yMd().add_jm().format(DateTime.now());
+      bankProvider.addAmountIncExp(
+          'Figma Snow Miku', 'Compre una figma', 1400, false, timeNow);
+      expect(bankProvider.getBalanceAcount(), -1400);
+    });
   });
 }
