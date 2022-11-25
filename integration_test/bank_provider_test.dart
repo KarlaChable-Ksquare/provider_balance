@@ -32,7 +32,11 @@ void main() {
         await tester.tap(addSubmitButton);
 
         var backButton = find.byTooltip('Back');
-        await tester.tap(backButton);
+        await tester.tap(backButton); //showDialogTap
+        await tester.pumpAndSettle();
+
+        var dialogTap = find.byKey(const Key('showDialogTap'));
+        await tester.tap(dialogTap);
         await tester.pumpAndSettle();
 
         expect(find.text('Figma Snow Miku'), findsOneWidget);

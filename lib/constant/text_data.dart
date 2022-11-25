@@ -16,4 +16,8 @@ class TextData {
   static String submit = 'SUBMIT';
   static String error = 'Error';
   static String noSend = 'Error: Incomplete data';
+
+  //Dialog
+  static String dialog = 'Your submit data';
+  static String created = 'Created At';
 }

@@ -29,6 +29,21 @@ class CustomTheme {
       fontWeight: FontWeight.w500,
       color: Color.fromRGBO(193, 84, 106, 1));
 
+  static isInEx(bool isIncExp) {
+    return TextStyle(
+        fontSize: 18.0,
+        fontWeight: FontWeight.w600,
+        color: isIncExp == true
+            ? const Color.fromRGBO(86, 179, 143, 1)
+            : const Color.fromRGBO(193, 84, 106, 1));
+  }
+
+  static dialogBack(bool isIncExp) {
+    return isIncExp == true
+        ? const Color.fromRGBO(187, 218, 206, 0.7)
+        : const Color.fromRGBO(220, 186, 193, 0.7);
+  }
+
   var themeBank = ThemeData(
     primaryColor: primaryColor,
     scaffoldBackgroundColor: const Color.fromRGBO(245, 245, 245, 1),
@@ -80,8 +95,9 @@ class CustomTheme {
       filled: true,
       fillColor: Colors.white,
     ),
-    listTileTheme: const ListTileThemeData(
-        //contentPadding: EdgeInsets.symmetric(vertical: 12.0),
-        ),
+    dialogTheme: const DialogTheme(
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(12.0))),
+    ),
   );
 }
